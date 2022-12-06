@@ -1,24 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/06 21:35:01 by yeongo           ###   ########.fr       */
+/*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
+/*   Updated: 2022/12/06 19:57:36 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_BONUS_H
-# define PUSH_SWAP_BONUS_H
+#include "../include/push_swap_bonus.h"
 
-typedef struct s_stack	t_stack;
-
-struct s_stack {
-	int				data;
-	unsigned int	stack_size;
-	t_stack			*next;
-};
-
-#endif
+void	rra(t_stack *head_a);
+void	rrb(t_stack *head_a);
+void	rrr(t_stack *head_a);

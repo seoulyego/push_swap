@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
+/*   stack_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/06 21:35:01 by yeongo           ###   ########.fr       */
+/*   Created: 2022/12/06 19:58:24 by yeongo            #+#    #+#             */
+/*   Updated: 2022/12/06 21:37:02 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_BONUS_H
-# define PUSH_SWAP_BONUS_H
+#include "../include/push_swap_bonus.h"
+#include <stdlib.h>
 
-typedef struct s_stack	t_stack;
+void	stack_push(int data, t_stack *head)
+{
+	return ;
+}
 
-struct s_stack {
-	int				data;
-	unsigned int	stack_size;
-	t_stack			*next;
-};
-
-#endif
+int	stack_pop(t_stack *head)
+{
+	return (0);
+}
