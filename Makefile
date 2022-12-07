@@ -6,19 +6,19 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/12/06 21:53:56 by yeongo           ###   ########.fr        #
+#    Updated: 2022/12/07 13:49:26 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			:=	so_long
 CC				:=	cc
 CFLAGS			:=	-Wall -Wextra -Werror
-LDFAGS			:=	-L$(LIBFT_DIR) -lft
 RM				:=	rm -rf
 
 LIBFT			:=	./libft/libft.a
 LIBFT_DIR		:=	./libft/
 LIBFT_HEADER	:=	./libft/include
+LDFLAGS			:=	-L$(LIBFT_DIR) -lft
 
 HEADER			:=	./include/
 SRC_DIR			:=	./src/
@@ -76,7 +76,7 @@ endif
 all		:	$(OBJ_FOLDER) $(NAME)
 
 $(NAME)	:	$(OBJS) $(LIBFT)
-	@$(CC) $(CFLAGS) $(LDFAGS) -o $@ $^
+	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 	@echo "\033[01;32m       SUCCESS!      \033[0m"
 
 $(OBJ_FOLDER)	:
