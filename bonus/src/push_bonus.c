@@ -6,13 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:35:58 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/06 20:07:14 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:52:47 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap_bonus.h"
 
-static void	push_node(t_stack *head_to, t_stack *head_from);
+static void	push_element(t_stack *head_to, t_stack *head_from);
 
 void	pa(t_stack *head_b, t_stack *head_a)
 {

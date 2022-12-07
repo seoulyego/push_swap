@@ -6,13 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:12:23 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/06 21:37:29 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:53:14 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap_bonus.h"
 
-static void	swap_link(t_stack *node_prev, t_stack *node_next)
+static void	swap_element(t_stack *node_prev, t_stack *node_next)
 {
 	t_stack	*tmp;
 
@@ -30,7 +30,7 @@ void	sa(t_stack *head_a, unsigned int stack_size)
 		return ;
 	prev = head_a->next;
 	next = prev->next;
-	swap_link(prev, next);
+	swap_element(prev, next);
 	head_a->next = next;
 }
 
@@ -43,7 +43,7 @@ void	sb(t_stack *head_b, unsigned int stack_size)
 		return ;
 	prev = head_b->next;
 	next = prev->next;
-	swap_link(prev, next);
+	swap_element(prev, next);
 	head_b->next = next;
 }
 
