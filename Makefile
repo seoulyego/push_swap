@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/12/07 13:49:26 by yeongo           ###   ########.fr        #
+#    Updated: 2022/12/09 16:56:21 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,15 +44,11 @@ SRC				:=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ				:=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 SRC_B_FILES		:=	$(addsuffix .c,			\
-					\
-					\
-					\
-					\
-					\
-					\
-					\
-					\
-					\
+					push_bonus				\
+					reverse_rotate_bonus	\
+					rotate_bonus			\
+					stack_bonus				\
+					swap_bonus				\
 					checker_bonus)
 OBJ_B_FILES		:=	$(SRC_B_FILES:.c=.o)
 SRC_BONUS		:=	$(addprefix $(SRC_B_DIR), $(SRC_B_FILES))
