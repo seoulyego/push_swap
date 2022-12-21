@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:11:39 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/13 21:00:46 by yeongo           ###   ########.fr       */
+/*   Created: 2022/12/21 15:04:44 by yeongo            #+#    #+#             */
+/*   Updated: 2022/12/21 15:05:09 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap_bonus.h"
+#include "../../libft/include/libft.h"
 
-int	main(int ac, char **av)
+void	put_error_message(char *str)
 {
-	return (0);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(str, 2);
 }

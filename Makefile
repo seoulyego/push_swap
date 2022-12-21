@@ -6,11 +6,13 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/12/09 16:56:21 by yeongo           ###   ########.fr        #
+#    Updated: 2022/12/21 15:53:21 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:=	so_long
+NAME_MANDATORY	:=	push_swap
+NAME_BONUS		:=	checker
+
 CC				:=	cc
 CFLAGS			:=	-Wall -Wextra -Werror
 RM				:=	rm -rf
@@ -49,6 +51,9 @@ SRC_B_FILES		:=	$(addsuffix .c,			\
 					rotate_bonus			\
 					stack_bonus				\
 					swap_bonus				\
+					error_bonus				\
+					parse_args_bonus		\
+					parse_util_bonus		\
 					checker_bonus)
 OBJ_B_FILES		:=	$(SRC_B_FILES:.c=.o)
 SRC_BONUS		:=	$(addprefix $(SRC_B_DIR), $(SRC_B_FILES))
@@ -59,13 +64,15 @@ ifdef BONUS
 		SRC_FOLDER		=	$(SRC_B_DIR)
 		OBJ_FOLDER		=	$(OBJ_B_DIR)
 		OBJS			=	$(OBJ_BONUS)
-		PRINT			=	BONUS
+		NAME			=	$(NAME_BONUS)
+		PRINT			=	CHECKER
 else
 		INCLUDE			=	$(HEADER)
 		SRC_FOLDER		=	$(SRC_DIR)
 		OBJ_FOLDER		=	$(OBJ_DIR)
 		OBJS			=	$(OBJ)
-		PRINT			=	SO_LONG
+		NAME			=	$(NAME_MANDATORY)
+		PRINT			=	PUSH_SWAP
 endif
 
 .PHONY	:	all

@@ -6,49 +6,40 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:12:23 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/07 13:53:14 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/12/13 16:52:37 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap_bonus.h"
 
-static void	swap_element(t_stack *node_prev, t_stack *node_next)
+static void	swap_element(t_stack *head)
 {
+	t_stack	*node_prev;
+	t_stack	*node_next;
 	t_stack	*tmp;
 
+	if (head->stack_size == 0 || head->stack_size == 1)
+		return ;
+	node_prev = head->next;
+	node_next = node_prev->next;
 	tmp = node_next->next;
 	node_prev->next = tmp;
 	node_next->next = node_prev;
+	head->next = node_next;
 }
 
-void	sa(t_stack *head_a, unsigned int stack_size)
+void	sa(t_stack *head_a)
 {
-	t_stack	*prev;
-	t_stack	*next;
-
-	if (stack_size == 0 || stack_size == 1)
-		return ;
-	prev = head_a->next;
-	next = prev->next;
-	swap_element(prev, next);
-	head_a->next = next;
+	swap_element(head_a);
 }
 
-void	sb(t_stack *head_b, unsigned int stack_size)
+void	sb(t_stack *head_b)
 {
-	t_stack	*prev;
-	t_stack	*next;
-
-	if (stack_size == 0 || stack_size == 1)
-		return ;
-	prev = head_b->next;
-	next = prev->next;
-	swap_element(prev, next);
-	head_b->next = next;
+	swap_element(head_b);
 }
 
 void	ss(t_stack *head_a, t_stack *head_b)
 {
-	sa(head_a, head_a->stack_size);
-	sb(head_b, head_b->stack_size);
+	sa(head_a);
+	sb(head_b);
 }
