@@ -6,51 +6,42 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/13 20:56:04 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:10:33 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap_bonus.h"
+#include "../include/stack_bonus.h"
 #include <stddef.h>
 
-static t_stack	*get_element(t_stack *head, void *data_ref)
+static void	reverse_rotate_element(t_stack stack[2])
 {
-	t_stack	*node_last;
+	t_node	*node_top;
+	t_node	*node_last;
+	t_node	*node_tmp;
 
-	node_last = head;
-	while (node_last->next != data_ref)
-		node_last = node_last->next;
-	return (node_last);
-}
-
-static void	reverse_rotate_element(t_stack *head)
-{
-	t_stack	*node_top;
-	t_stack	*node_last;
-	t_stack	*node_tmp;
-
-	if (head->stack_size == 0 || head->stack_size == 1)
+	if (stack[HEAD].stack_size == 0 || stack[HEAD].stack_size == 1)
 		return ;
-	node_top = head->next;
-	node_last = get_last_element(head);
-	node_tmp = get_element(head, node_last);
+	node_top = stack[HEAD].ptr;
+	node_last = stack[TAIL].ptr;
+	node_tmp = get_prev_element(&stack[HEAD], node_last);
 	node_last->next = node_top;
-	head->next = node_last;
 	node_tmp->next = NULL;
+	stack[HEAD].ptr = node_last;
+	stack[TAIL].ptr = node_tmp;
 }
 
-void	rra(t_stack *head_a)
+void	rra(t_stack stacks[2][2])
 {
-	reverse_rotate_element(head_a);
+	reverse_rotate_element(stacks[ST_A]);
 }
 
-void	rrb(t_stack *head_b)
+void	rrb(t_stack stacks[2][2])
 {
-	reverse_rotate_element(head_b);
+	reverse_rotate_element(stacks[ST_B]);
 }
 
-void	rrr(t_stack *head_a, t_stack *head_b)
+void	rrr(t_stack stacks[2][2])
 {
-	rra(head_a);
-	rrb(head_b);
+	reverse_rotate_element(stacks[ST_A]);
+	reverse_rotate_element(stacks[ST_B]);
 }

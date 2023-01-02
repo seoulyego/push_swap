@@ -6,32 +6,37 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:35:58 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/13 16:52:13 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:10:29 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap_bonus.h"
+#include "../include/stack_bonus.h"
+#include <stddef.h>
 
-static void	push_element(t_stack *head_from, t_stack *head_to)
+static void	push_element(t_stack stack_from[2], t_stack stack_to[2])
 {
-	t_stack	*tmp;
+	t_node	*node_tmp;
 
-	if (head_from->stack_size == 0)
+	if (stack_from->stack_size == 0)
 		return ;
-	tmp = head_from->next->next;
-	head_from->next->next = head_to->next;
-	head_to->next = head_from->next;
-	head_from->next = tmp;
-	head_from->stack_size--;
-	head_to->stack_size++;
+	node_tmp = stack_from[HEAD].ptr->next;
+	stack_from[HEAD].ptr->next = stack_to[HEAD].ptr;
+	stack_to[HEAD].ptr = stack_from[HEAD].ptr;
+	stack_from[HEAD].ptr = node_tmp;
+	stack_from[HEAD].stack_size--;
+	stack_to[HEAD].stack_size++;
+	if (stack_from[TAIL].ptr == NULL)
+		stack_from[TAIL].ptr = get_prev_element(&stack_from[HEAD], NULL);
+	if (stack_to[TAIL].ptr == NULL)
+		stack_to[TAIL].ptr = get_prev_element(&stack_to[HEAD], NULL);
 }
 
-void	pa(t_stack *head_b, t_stack *head_a)
+void	pa(t_stack stacks[2][2])
 {
-	push_element(head_b, head_a);
+	push_element(stacks[ST_B], stacks[ST_A]);
 }
 
-void	pb(t_stack *head_a, t_stack *head_b)
+void	pb(t_stack stacks[2][2])
 {
-	push_element(head_a, head_b);
+	push_element(stacks[ST_A], stacks[ST_B]);
 }

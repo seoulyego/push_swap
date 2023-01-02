@@ -6,49 +6,40 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/13 20:55:56 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/03 05:25:48 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap_bonus.h"
+#include "../include/struct_bonus.h"
 #include <stddef.h>
 
-t_stack	*get_last_element(t_stack *head)
+static void	rotate_element(t_stack stack[2])
 {
-	t_stack	*node_last;
+	t_node	*node_top;
+	t_node	*node_last;
 
-	node_last = head;
-	while (node_last->next != NULL)
-		node_last = node_last->next;
-	return (node_last);
-}
-
-static void	rotate_element(t_stack *head)
-{
-	t_stack	*node_top;
-	t_stack	*node_last;
-
-	if (head->stack_size == 0 || head->stack_size == 1)
+	if (stack[HEAD].stack_size == 0 || stack[HEAD].stack_size == 1)
 		return ;
-	node_top = head->next;
-	node_last = get_last_element(head);
-	head->next = node_top->next;
+	node_top = stack[HEAD].ptr;
+	node_last = stack[TAIL].ptr;
+	stack[HEAD].ptr = node_top->next;
 	node_last->next = node_top;
 	node_top->next = NULL;
+	stack[TAIL].ptr = node_top;
 }
 
-void	ra(t_stack *head_a)
+void	ra(t_stack stacks[2][2])
 {
-	rotate_element(head_a);
+	rotate_element(stacks[ST_A]);
 }
 
-void	rb(t_stack *head_b)
+void	rb(t_stack stacks[2][2])
 {
-	rotate_element(head_b);
+	rotate_element(stacks[ST_B]);
 }
 
-void	rr(t_stack *head_a, t_stack *head_b)
+void	rr(t_stack stacks[2][2])
 {
-	ra(head_a);
-	rb(head_b);
+	rotate_element(stacks[ST_A]);
+	rotate_element(stacks[ST_B]);
 }

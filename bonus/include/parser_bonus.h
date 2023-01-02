@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_bonus.c                                      :+:      :+:    :+:   */
+/*   parser_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 15:04:44 by yeongo            #+#    #+#             */
-/*   Updated: 2022/12/21 15:05:09 by yeongo           ###   ########.fr       */
+/*   Created: 2022/12/28 20:23:58 by yeongo            #+#    #+#             */
+/*   Updated: 2022/12/28 21:15:57 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/include/libft.h"
+#ifndef PARSER_BONUS_H
+# define PARSER_BONUS_H
 
-void	put_error_message(char *str)
-{
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(str, 2);
-}
+int		count_table_size(char **argv);
+int		check_validate_table(char **table);
+char	**argv_to_str_table(char **argv);
+
+#endif
