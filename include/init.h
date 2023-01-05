@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_bonus.h                                     :+:      :+:    :+:   */
+/*   init.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:45:37 by yeongo           ###   ########.fr       */
+/*   Created: 2022/12/28 21:17:14 by yeongo            #+#    #+#             */
+/*   Updated: 2023/01/05 06:29:07 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_BONUS_H
-# define STRUCT_BONUS_H
+#ifndef INIT_H
+# define INIT_H
 
-# include <stddef.h>
+# include "struct.h"
 
-typedef struct s_stack	t_stack;
-typedef struct s_node	t_node;
-
-struct s_stack {
-	unsigned int	size;
-	t_node			*ptr;
-};
-
-struct s_node {
-	int		data;
-	t_node	*next;
-};
-
-enum e_stack_name {
-	ST_A,
-	ST_B
-};
-
-enum e_stack_ptr {
-	HEAD,
-	TAIL
-};
+int	init_stack(char **table, t_stack stack[2]);
+int	get_pivots(t_stack stack[2], int pivot[2]);
 
 #endif

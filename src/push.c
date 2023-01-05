@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_bonus.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:35:58 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:46:49 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 05:45:00 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/stack_bonus.h"
+#include "../include/stack.h"
 
 static void	push_element(t_stack stack_from[2], t_stack stack_to[2])
 {

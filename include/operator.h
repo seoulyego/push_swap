@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operator_bonus.h                                   :+:      :+:    :+:   */
+/*   operator.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 20:19:22 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 06:43:54 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 20:37:35 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATOR_BONUS_H
-# define OPERATOR_BONUS_H
+#ifndef OPERATOR_H
+# define OPERATOR_H
 
-# include "struct_bonus.h"
+# include "struct.h"
 
 enum e_operation {
 	OP_PA,
@@ -41,5 +41,6 @@ void	rr(t_stack stacks[2][2]);
 void	rra(t_stack stacks[2][2]);
 void	rrb(t_stack stacks[2][2]);
 void	rrr(t_stack stacks[2][2]);
-
+void	ra_and_rrb(t_stack stacks[2][2]);
+void	rra_and_rb(t_stack stacks[2][2]);
 #endif

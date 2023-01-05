@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:17:14 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/03 06:46:13 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 06:33:42 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "struct_bonus.h"
 
-int		table_to_stack(char **table, t_stack stack[2]);
+int		init_stack(char **table, t_stack stack[2]);
 void	run_operator(t_stack stacks[2][2]);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2023/01/03 06:24:21 by yeongo           ###   ########.fr        #
+#    Updated: 2023/01/05 07:01:53 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,32 +33,37 @@ SRC_B_DIR		:=	./bonus/src/
 OBJ_B_DIR		:=	./bonus/.obj/
 
 SRC_FILES		:=	$(addsuffix .c,			\
-					operate					\
+					print_test				\
 					push					\
-					reverse_rotate			\
-					rotate					\
-					stack					\
 					swap					\
+					rotate					\
+					reverse_rotate			\
+					stack					\
 					print_result			\
-					parse_args				\
 					parse_util				\
-					push_swap				\
+					parse_args				\
+					pivot					\
+					sort_util				\
+					sort_basic				\
+					sort					\
+					pre_sort				\
+					main					\
 					)
 OBJ_FILES		:=	$(SRC_FILES:.c=.o)
 SRC				:=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ				:=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 SRC_B_FILES		:=	$(addsuffix .c,			\
-					checker_bonus			\
-					operate_bonus			\
-					parse_args_bonus		\
-					parse_util_bonus		\
-					print_result_bonus		\
 					push_bonus				\
-					reverse_rotate_bonus	\
-					rotate_bonus			\
-					stack_bonus				\
 					swap_bonus				\
+					rotate_bonus			\
+					reverse_rotate_bonus	\
+					stack_bonus				\
+					print_result_bonus		\
+					parse_util_bonus		\
+					parse_args_bonus		\
+					operate_bonus			\
+					checker_bonus			\
 					)
 OBJ_B_FILES		:=	$(SRC_B_FILES:.c=.o)
 SRC_BONUS		:=	$(addprefix $(SRC_B_DIR), $(SRC_B_FILES))

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_util_bonus.c                                 :+:      :+:    :+:   */
+/*   parse_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:46:05 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 03:26:18 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 03:41:58 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/print_bonus.h"
-#include "../../libft/include/ft_split.h"
-#include "../../libft/include/ft_string.h"
-#include "../../libft/include/libft.h"
+#include "../include/print.h"
+#include "../libft/include/ft_split.h"
+#include "../libft/include/ft_string.h"
+#include "../libft/include/libft.h"
 
 int	count_table_size(char **argv)
 {

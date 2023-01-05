@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_bonus.c                                     :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:46:54 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 05:46:02 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/struct_bonus.h"
+#include "../include/struct.h"
 
 static void	rotate_element(t_stack stack[2])
 {

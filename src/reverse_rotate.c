@@ -1,44 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_bonus.c                                     :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:46:54 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 05:46:24 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/struct_bonus.h"
+#include "../include/stack.h"
 
-static void	rotate_element(t_stack stack[2])
+static void	reverse_rotate_element(t_stack stack[2])
 {
 	t_node	*node_top;
 	t_node	*node_last;
+	t_node	*node_tmp;
 
 	if (stack[HEAD].size == 0 || stack[HEAD].size == 1)
 		return ;
 	node_top = stack[HEAD].ptr;
 	node_last = stack[TAIL].ptr;
-	stack[HEAD].ptr = node_top->next;
+	node_tmp = get_prev_element(&stack[HEAD], node_last);
 	node_last->next = node_top;
-	node_top->next = NULL;
-	stack[TAIL].ptr = node_top;
+	node_tmp->next = NULL;
+	stack[HEAD].ptr = node_last;
+	stack[TAIL].ptr = node_tmp;
 }
 
-void	ra(t_stack stacks[2][2])
+void	rra(t_stack stacks[2][2])
 {
-	rotate_element(stacks[ST_A]);
+	reverse_rotate_element(stacks[ST_A]);
 }
 
-void	rb(t_stack stacks[2][2])
+void	rrb(t_stack stacks[2][2])
 {
-	rotate_element(stacks[ST_B]);
+	reverse_rotate_element(stacks[ST_B]);
 }
 
-void	rr(t_stack stacks[2][2])
+void	rrr(t_stack stacks[2][2])
 {
-	rotate_element(stacks[ST_A]);
-	rotate_element(stacks[ST_B]);
+	reverse_rotate_element(stacks[ST_A]);
+	reverse_rotate_element(stacks[ST_B]);
 }

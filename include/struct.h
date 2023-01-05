@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_bonus.h                                     :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:45:37 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 07:53:55 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_BONUS_H
-# define STRUCT_BONUS_H
+#ifndef STRUCT_H
+# define STRUCT_H
 
 # include <stddef.h>
 

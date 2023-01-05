@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args_bonus.c                                 :+:      :+:    :+:   */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 22:27:42 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 06:57:51 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 06:57:14 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/parser_bonus.h"
-#include "../include/stack_bonus.h"
-#include "../include/print_bonus.h"
-#include "../../libft/include/ft_split.h"
-#include "../../libft/include/ft_string.h"
-#include "../../libft/include/ft_memory.h"
-#include "../../libft/include/libft.h"
+#include "../include/parser.h"
+#include "../include/stack.h"
+#include "../include/print.h"
+#include "../libft/include/ft_split.h"
+#include "../libft/include/ft_string.h"
+#include "../libft/include/ft_memory.h"
+#include "../libft/include/libft.h"
 
 static int	save_splited_str(char **str_table, int index_table, char *str)
 {

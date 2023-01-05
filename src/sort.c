@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_bonus.h                                     :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:45:37 by yeongo           ###   ########.fr       */
+/*   Created: 2023/01/05 08:25:47 by yeongo            #+#    #+#             */
+/*   Updated: 2023/01/05 21:40:10 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_BONUS_H
-# define STRUCT_BONUS_H
+#include "../include/sort.h"
+#include "../include/operator.h"
 
-# include <stddef.h>
+void	insert_element(t_stack stacks[2][2], int rot[2])
+{
+	pa(stacks);
+}
 
-typedef struct s_stack	t_stack;
-typedef struct s_node	t_node;
+void	push_swap(t_stack stacks[2][2], int pivot[2])
+{
+	static int	limit[2];
+	static int	rotation[2];
 
-struct s_stack {
-	unsigned int	size;
-	t_node			*ptr;
-};
-
-struct s_node {
-	int		data;
-	t_node	*next;
-};
-
-enum e_stack_name {
-	ST_A,
-	ST_B
-};
-
-enum e_stack_ptr {
-	HEAD,
-	TAIL
-};
-
-#endif
+	if (is_sorted_stack(stacks))
+		return ;
+	if (pre_sort(stacks, pivot, limit))
+		return ;
+}

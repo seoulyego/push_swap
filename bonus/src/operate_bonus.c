@@ -6,11 +6,10 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:05:08 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/03 06:46:08 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 09:45:06 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/checker_bonus.h"
 #include "../include/operator_bonus.h"
 #include "../include/print_bonus.h"
 #include "../../libft/include/ft_string.h"
@@ -34,7 +33,7 @@ static void	init_operator(void (*f_oper[11])())
 static int	get_operator(char *str)
 {
 	static const char	*operators[11] = {"pa\n", "pb\n", "sa\n", "sb\n", \
-		"ss\n", "ra\n", "rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n"};
+				"ss\n", "ra\n", "rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n"};
 	int					index;
 
 	index = 0;
@@ -45,22 +44,21 @@ static int	get_operator(char *str)
 			return (index);
 		index++;
 	}
-	return (OP_NONE);
+	return (OP_FAIL);
 }
 
-static int	is_sorted(t_stack stacks[2][2])
+static int	is_sorted_stack(t_stack stacks[2][2])
 {
-	t_node	*cur;
+	t_node	*cur_a;
 
-	if (!(stacks[ST_B][HEAD].stack_size == 0 && \
-				stacks[ST_B][HEAD].ptr == NULL))
+	if (!(stacks[ST_B][HEAD].size == 0 && stacks[ST_B][HEAD].ptr == NULL))
 		return (0);
-	cur = stacks[ST_A][HEAD].ptr;
-	while (cur->next != NULL)
+	cur_a = stacks[ST_A][HEAD].ptr;
+	while (cur_a->next != NULL)
 	{
-		if (cur->data >= cur->next->data)
+		if (cur_a->data >= cur_a->next->data)
 			return (0);
-		cur = cur->next;
+		cur_a = cur_a->next;
 	}
 	return (1);
 }
@@ -77,7 +75,7 @@ void	run_operator(t_stack stacks[2][2])
 	{
 		func_num = get_operator(str);
 		free(str);
-		if (func_num == OP_NONE)
+		if (func_num == OP_FAIL)
 		{
 			print_error_message();
 			return ;
@@ -85,7 +83,7 @@ void	run_operator(t_stack stacks[2][2])
 		f_oper[func_num](stacks);
 		str = get_next_line(0);
 	}
-	if (is_sorted(stacks))
+	if (is_sorted_stack(stacks))
 		print_result("OK");
 	else
 		print_result("KO");

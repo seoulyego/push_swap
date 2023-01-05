@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_bonus.h                                     :+:      :+:    :+:   */
+/*   print_result.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:45:37 by yeongo           ###   ########.fr       */
+/*   Created: 2022/12/21 15:04:44 by yeongo            #+#    #+#             */
+/*   Updated: 2023/01/05 09:38:09 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_BONUS_H
-# define STRUCT_BONUS_H
+#include "../libft/include/libft.h"
 
-# include <stddef.h>
+void	print_result(char *str)
+{
+	ft_putendl_fd(str, 1);
+}
 
-typedef struct s_stack	t_stack;
-typedef struct s_node	t_node;
+void	print_opers(void);
 
-struct s_stack {
-	unsigned int	size;
-	t_node			*ptr;
-};
-
-struct s_node {
-	int		data;
-	t_node	*next;
-};
-
-enum e_stack_name {
-	ST_A,
-	ST_B
-};
-
-enum e_stack_ptr {
-	HEAD,
-	TAIL
-};
-
-#endif
+void	print_error_message(void)
+{
+	ft_putendl_fd("Error", 2);
+}

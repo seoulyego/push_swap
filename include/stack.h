@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_bonus.h                                     :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:45:37 by yeongo           ###   ########.fr       */
+/*   Created: 2022/12/28 20:22:09 by yeongo            #+#    #+#             */
+/*   Updated: 2023/01/05 03:46:51 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_BONUS_H
-# define STRUCT_BONUS_H
+#ifndef STACK_H
+# define STACK_H
 
-# include <stddef.h>
+# include "struct.h"
 
-typedef struct s_stack	t_stack;
-typedef struct s_node	t_node;
-
-struct s_stack {
-	unsigned int	size;
-	t_node			*ptr;
-};
-
-struct s_node {
-	int		data;
-	t_node	*next;
-};
-
-enum e_stack_name {
-	ST_A,
-	ST_B
-};
-
-enum e_stack_ptr {
-	HEAD,
-	TAIL
-};
+int		stack_push(int data, t_stack stack[2]);
+t_node	*get_prev_element(t_stack *head, void *data_ref);
+void	clear_stacks(t_stack stacks[2][2]);
 
 #endif

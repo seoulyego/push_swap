@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_bonus.c                                      :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:58:24 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 07:06:07 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/05 05:45:56 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/struct_bonus.h"
+#include "../include/struct.h"
 #include <stdlib.h>
 
 int	stack_push(int data, t_stack stack[2])
