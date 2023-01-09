@@ -6,11 +6,12 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:12:23 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 05:46:59 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:41:06 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/struct_bonus.h"
+#include <stddef.h>
 
 static void	swap_element(t_stack stack[2])
 {

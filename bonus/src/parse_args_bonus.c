@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 22:27:42 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 06:57:51 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:42:24 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,13 @@ char	**argv_to_str_table(char **argv)
 
 int	init_stack(char **table, t_stack stack[2])
 {
-	int	data;
 	int	table_size;
+	int	data;
 
-	data = 0;
 	table_size = 0;
 	while (table[table_size] != NULL)
 		table_size++;
+	data = 0;
 	while (--table_size >= 0)
 	{
 		if (!ft_atoi(table[table_size], &data)

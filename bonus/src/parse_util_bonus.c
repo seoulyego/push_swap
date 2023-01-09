@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:46:05 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 03:26:18 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:41:53 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 int	count_table_size(char **argv)
 {
-	int		index;
-	int		count;
+	int	count;
+	int	index;
 
-	index = 1;
 	count = 0;
+	index = 1;
 	while (argv[index])
 	{
 		count += ft_res_size(argv[index], ' ');
@@ -44,8 +44,8 @@ static int	find_non_digit_char(char *str)
 
 static int	find_duplicated_str(char **table, int pos)
 {
-	int	index;
 	int	str_len;
+	int	index;
 
 	str_len = ft_strlen(table[pos]);
 	index = 0;
