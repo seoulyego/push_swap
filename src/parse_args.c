@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 22:27:42 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 06:57:14 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/06 01:12:50 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	init_stack(char **table, t_stack stack[2])
 	while (--table_size >= 0)
 	{
 		if (!ft_atoi(table[table_size], &data)
-			|| !stack_push(data, &stack[HEAD]))
+			|| !stack_push(data, stack))
 		{
 			ft_free_char(table);
 			print_error_message();

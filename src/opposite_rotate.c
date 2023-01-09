@@ -6,11 +6,12 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:34:43 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 20:36:59 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/06 00:40:24 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/operator.h"
+#include "../include/print.h"
 
 void	ra_and_rrb(t_stack stacks[2][2])
 {

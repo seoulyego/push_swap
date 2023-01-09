@@ -6,44 +6,28 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:35:02 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 13:43:52 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:31:44 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/operator.h"
 #include "../include/sort.h"
-#include <stddef.h>
 
-static int	get_min_data(t_stack stack[2])
+static void	get_limit_data(t_stack stack[2], int limit[2])
 {
 	t_node	*cur;
-	int		min;
 
 	cur = stack[HEAD].ptr;
-	min = cur->data;
+	limit[MIN] = cur->data;
+	limit[MAX] = cur->data;
 	while (cur != NULL)
 	{
-		if (min > cur->data)
-			min = cur->data;
+		if (limit[MIN] > cur->data)
+			limit[MIN] = cur->data;
+		if (limit[MAX] < cur->data)
+			limit[MAX] = cur->data;
 		cur = cur->next;
 	}
-	return (min);
-}
-
-static int	get_max_data(t_stack stack[2])
-{
-	t_node	*cur;
-	int		max;
-
-	cur = stack[HEAD].ptr;
-	max = cur->data;
-	while (cur != NULL)
-	{
-		if (max < cur->data)
-			max = cur->data;
-		cur = cur->next;
-	}
-	return (max);
 }
 
 static void	divide_three_parts(t_stack stacks[2][2], int pivot[2])
@@ -51,22 +35,21 @@ static void	divide_three_parts(t_stack stacks[2][2], int pivot[2])
 	int	to_check;
 
 	to_check = stacks[ST_A][HEAD].size;
-	while (to_check > 3)
+	while (to_check > 0)
 	{
-		if (stacks[ST_A][HEAD].ptr->data < pivot[PV_A])
+		if (stacks[ST_A][HEAD].ptr->data <= pivot[ST_A])
 		{
 			pb(stacks);
-			if (stacks[ST_A][HEAD].ptr->data >= pivot[PV_A]
-				&& stacks[ST_B][HEAD].ptr->data < pivot[PV_B])
+			if (stacks[ST_A][HEAD].ptr->data > pivot[ST_A])
 			{
-				if (stacks[ST_B][HEAD].size > 1)
+				if (stacks[ST_B][HEAD].size > 1
+					&& stacks[ST_B][HEAD].ptr->data < pivot[ST_B])
 					rr(stacks);
 				else
 					ra(stacks);
 				to_check--;
 			}
-			else if (stacks[ST_B][HEAD].size > 1
-				&& stacks[ST_B][HEAD].ptr->data < pivot[PV_B])
+			else if (stacks[ST_B][HEAD].ptr->data <= pivot[ST_B])
 				rb(stacks);
 		}
 		else
@@ -86,14 +69,35 @@ static void	sort_minimum(t_stack stacks[2][2], int limit[2])
 		sa(stacks);
 }
 
+static void	left_minimum_element(t_stack stacks[2][2])
+{
+	t_node	*cur;
+	int		sorted;
+
+	cur = stacks[ST_A][HEAD].ptr;
+	sorted = 0;
+	while (cur->next != NULL && sorted < stacks[ST_A][HEAD].size)
+	{
+		if (cur->data > cur->next->data)
+		{
+			sorted = 3;
+			break ;
+		}
+		sorted++;
+	}
+	while (stacks[ST_A][HEAD].size > 3 || stacks[ST_A][HEAD].size > sorted)
+		pb(stacks);
+}
+
 int	pre_sort(t_stack stacks[2][2], int pivot[2], int limit[2])
 {
 	if (stacks[ST_A][HEAD].size == 1)
 		return (1);
 	else if (stacks[ST_A][HEAD].size > 3)
 		divide_three_parts(stacks, pivot);
-	limit[MIN] = get_min_data(stacks[ST_A]);
-	limit[MAX] = get_max_data(stacks[ST_A]);
-	sort_minimum(stacks, limit);
+	left_minimum_element(stacks);
+	get_limit_data(stacks[ST_A], limit);
+	if (stacks[ST_A][HEAD].size > 1)
+		sort_minimum(stacks, limit);
 	return (is_sorted_stack(stacks));
 }

@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:04:44 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 09:38:09 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/06 00:38:01 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	print_result(char *str)
 {
 	ft_putendl_fd(str, 1);
 }
-
-void	print_opers(void);
 
 void	print_error_message(void)
 {

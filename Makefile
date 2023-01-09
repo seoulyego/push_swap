@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2023/01/05 07:01:53 by yeongo           ###   ########.fr        #
+#    Updated: 2023/01/09 21:47:24 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,20 +33,22 @@ SRC_B_DIR		:=	./bonus/src/
 OBJ_B_DIR		:=	./bonus/.obj/
 
 SRC_FILES		:=	$(addsuffix .c,			\
-					print_test				\
 					push					\
 					swap					\
 					rotate					\
 					reverse_rotate			\
+					opposite_rotate			\
 					stack					\
 					print_result			\
 					parse_util				\
 					parse_args				\
+					merge					\
 					pivot					\
+					pre_sort				\
 					sort_util				\
+					sort_init				\
 					sort_basic				\
 					sort					\
-					pre_sort				\
 					main					\
 					)
 OBJ_FILES		:=	$(SRC_FILES:.c=.o)
@@ -104,10 +106,6 @@ $(OBJ_FOLDER)%.o	:	$(SRC_FOLDER)%.c
 .PHONY	:	bonus
 bonus	:
 	@make BONUS=1 all
-
-.PHONY	:	test
-test	:
-	@make TEST=1 all
 
 .PHONY	:	clean
 clean	:

@@ -6,21 +6,19 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:02:01 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 07:53:55 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/09 21:36:07 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-# include <stddef.h>
-
 typedef struct s_stack	t_stack;
 typedef struct s_node	t_node;
 
 struct s_stack {
-	unsigned int	size;
-	t_node			*ptr;
+	int		size;
+	t_node	*ptr;
 };
 
 struct s_node {

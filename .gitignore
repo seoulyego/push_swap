@@ -3,3 +3,5 @@
 *.a
 *test*
 *.out*
+push_swap
+checker_Mac
