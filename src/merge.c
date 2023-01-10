@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 07:35:49 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:28:17 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/10 16:01:31 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,3 @@ void	ft_merge_sort(int *arr, int *arr_tmp, int length)
 	copy_array(arr, 0, length, arr_tmp);
 	split_merge(arr_tmp, 0, length, arr);
 }
-//
-// #include <stdio.h>
-//
-// int main(void)
-// {
-// 	int data[10] = {253, 277, 8, 7, 6, 5, 4, 3, 2, 1};
-// 	int data_tmp[10];
-// 	ft_merge_sort(data, data_tmp, 10);
-// 	printf("data\n");
-// 	for (int i = 0; i < 10; i++)
-// 	{
-// 		printf("%d ", data[i]);
-// 	}
-// 	printf("\ndata_tmp\n");
-// 	for (int i = 0; i < 10; i++)
-// 	{
-// 		printf("%d ", data[i]);
-// 	}
-// }
