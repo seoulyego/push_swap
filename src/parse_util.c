@@ -6,19 +6,18 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:46:05 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/05 03:41:58 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/11 06:21:16 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/print.h"
 #include "../libft/include/ft_split.h"
-#include "../libft/include/ft_string.h"
 #include "../libft/include/libft.h"
 
 int	count_table_size(char **argv)
 {
-	int		index;
-	int		count;
+	int	index;
+	int	count;
 
 	index = 1;
 	count = 0;
@@ -42,22 +41,6 @@ static int	find_non_digit_char(char *str)
 	return (0);
 }
 
-static int	find_duplicated_str(char **table, int pos)
-{
-	int	index;
-	int	str_len;
-
-	str_len = ft_strlen(table[pos]);
-	index = 0;
-	while (index < pos)
-	{
-		if (ft_strncmp(table[index], table[pos], str_len + 1) == 0)
-			return (1);
-		index++;
-	}
-	return (0);
-}
-
 int	check_validate_table(char **table)
 {
 	int	index_tab;
@@ -68,11 +51,6 @@ int	check_validate_table(char **table)
 		if (!(ft_issign(table[index_tab][0])
 			|| ft_isdigit(table[index_tab][0]))
 			|| find_non_digit_char(table[index_tab]))
-		{
-			print_error_message();
-			return (0);
-		}
-		if (find_duplicated_str(table, index_tab))
 		{
 			print_error_message();
 			return (0);

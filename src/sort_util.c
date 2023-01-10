@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 03:13:27 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/10 13:26:52 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/11 04:55:06 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,22 @@ int	change_rot_count(int rot[2], int rot_tmp[2])
 	unsigned int	sum_rot;
 	unsigned int	sum_rot_tmp;
 
-	sum_rot = ft_abs_int(rot[ST_B]) + ft_abs_int(rot[ST_A]);
-	sum_rot_tmp = ft_abs_int(rot_tmp[ST_B]) + ft_abs_int(rot_tmp[ST_A]);
+	if ((rot[ST_B] > 0 && rot[ST_A] > 0)
+		|| (rot[ST_B] < 0 && rot[ST_A] < 0))
+		sum_rot = (ft_abs_int(rot[ST_B]) \
+			* (ft_abs_int(rot[ST_B]) >= ft_abs_int(rot[ST_A])) \
+			+ ft_abs_int(rot[ST_A]) \
+			* (ft_abs_int(rot[ST_B]) < ft_abs_int(rot[ST_A])));
+	else
+		sum_rot = ft_abs_int(rot[ST_B]) + ft_abs_int(rot[ST_A]);
+	if ((rot_tmp[ST_B] > 0 && rot_tmp[ST_A] > 0)
+		|| (rot_tmp[ST_B] < 0 && rot_tmp[ST_A] < 0))
+		sum_rot_tmp = (ft_abs_int(rot_tmp[ST_B]) \
+			* (ft_abs_int(rot_tmp[ST_B]) >= ft_abs_int(rot_tmp[ST_A])) \
+			+ ft_abs_int(rot_tmp[ST_A]) \
+			* (ft_abs_int(rot_tmp[ST_B]) < ft_abs_int(rot_tmp[ST_A])));
+	else
+		sum_rot_tmp = ft_abs_int(rot_tmp[ST_B]) + ft_abs_int(rot_tmp[ST_A]);
 	if (sum_rot > sum_rot_tmp)
 		return (1);
 	return (0);

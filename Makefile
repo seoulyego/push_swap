@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2023/01/09 21:47:24 by yeongo           ###   ########.fr        #
+#    Updated: 2023/01/11 06:04:28 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,15 @@ else
 		PRINT			:=	PUSH_SWAP
 endif
 
+ifdef TEST
+		SRC				+=	$(addprefix $(SRC_DIR), $(addsuffix .c, print_test))
+		OBJ				+=	$(addprefix $(OBJ_DIR), $(addsuffix .o, print_test))
+		PRINT			:=	PUSH_SWAP_TEST
+else ifdef DEBUG
+		CFLAGS			+=	-g -fsanitize=address
+		PRINT			:=	PUSH_SWAP_DEBUG
+endif
+
 .PHONY	:	all
 all		:	$(OBJ_FOLDER) $(NAME)
 
@@ -106,6 +115,14 @@ $(OBJ_FOLDER)%.o	:	$(SRC_FOLDER)%.c
 .PHONY	:	bonus
 bonus	:
 	@make BONUS=1 all
+
+.PHONY	:	test
+test	:
+	@make TEST=1 all
+
+.PHONY	:	debug
+debug	:
+	@make DEBUG=1 all
 
 .PHONY	:	clean
 clean	:

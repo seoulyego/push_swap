@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:35:02 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/10 13:24:54 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/11 06:21:46 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	get_limit_data(t_stack stack[2], int limit[2])
 	t_node	*cur;
 
 	cur = stack[HEAD].ptr;
+	if (cur == NULL)
+		return ;
 	limit[MIN] = cur->data;
 	limit[MAX] = cur->data;
 	while (cur != NULL)
@@ -67,6 +69,9 @@ static void	sort_minimum(t_stack stacks[2][2], int limit[2])
 	if (stacks[ST_A][HEAD].ptr->next != NULL
 		&& stacks[ST_A][HEAD].ptr->data > stacks[ST_A][HEAD].ptr->next->data)
 		sa(stacks);
+	if (stacks[ST_B][HEAD].size == 2
+		&& stacks[ST_B][HEAD].ptr->data < stacks[ST_B][HEAD].ptr->next->data)
+		sb(stacks);
 }
 
 static void	left_minimum_element(t_stack stacks[2][2])
@@ -79,13 +84,11 @@ static void	left_minimum_element(t_stack stacks[2][2])
 	while (cur->next != NULL && sorted < stacks[ST_A][HEAD].size)
 	{
 		if (cur->data > cur->next->data)
-		{
-			sorted = 3;
-			break ;
-		}
+			sorted = 0;
 		sorted++;
+		cur = cur->next;
 	}
-	while (stacks[ST_A][HEAD].size > 3 || stacks[ST_A][HEAD].size > sorted)
+	while (stacks[ST_A][HEAD].size > 3 && stacks[ST_A][HEAD].size > sorted)
 		pb(stacks);
 }
 
@@ -93,7 +96,7 @@ int	pre_sort(t_stack stacks[2][2], int pivot[2], int limit[2])
 {
 	if (stacks[ST_A][HEAD].size == 1)
 		return (1);
-	else if (stacks[ST_A][HEAD].size > 3)
+	else if (stacks[ST_A][HEAD].size > 5)
 		divide_three_parts(stacks, pivot);
 	left_minimum_element(stacks);
 	get_limit_data(stacks[ST_A], limit);

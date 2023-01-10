@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 22:27:42 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/06 01:12:50 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/11 06:15:45 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	save_str_to_table(char **str_table, int *index_table, char **argv)
 			if (*index_table == -1)
 				return (0);
 		}
-		else if (argv[index_args][0])
+		else if (argv[index_args][0] != '\0')
 		{
 			str_table[*index_table] = ft_strdup(argv[index_args]);
 			if (str_table[*index_table] == NULL)
@@ -93,6 +93,22 @@ char	**argv_to_str_table(char **argv)
 	return (str_table);
 }
 
+static int	find_duplicated_number(t_stack stack[2], char *str, int *data)
+{
+	t_node	*cur;
+
+	if (!ft_atoi(str, data))
+		return (1);
+	cur = stack[HEAD].ptr;
+	while (cur != NULL)
+	{
+		if (cur->data == *data)
+			return (1);
+		cur = cur->next;
+	}
+	return (0);
+}
+
 int	init_stack(char **table, t_stack stack[2])
 {
 	int	data;
@@ -104,7 +120,7 @@ int	init_stack(char **table, t_stack stack[2])
 		table_size++;
 	while (--table_size >= 0)
 	{
-		if (!ft_atoi(table[table_size], &data)
+		if (find_duplicated_number(stack, table[table_size], &data)
 			|| !stack_push(data, stack))
 		{
 			ft_free_char(table);
