@@ -6,12 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:35:58 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:22:12 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:22:13 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/stack.h"
 #include "../include/print.h"
+#include <stddef.h>
 
 static int	push_element(t_stack stack_from[2], t_stack stack_to[2])
 {

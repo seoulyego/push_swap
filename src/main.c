@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:11:39 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:06:25 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:25:32 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../include/stack.h"
 #include "../include/init.h"
 #include "../include/sort.h"
+#include <stddef.h>
 
 int	main(int ac, char **av)
 {

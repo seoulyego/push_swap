@@ -6,12 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 03:13:27 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:33:55 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:26:52 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/struct.h"
 #include "../libft/include/ft_math.h"
+#include <stddef.h>
 
 int	is_sorted_stack(t_stack stacks[2][2])
 {

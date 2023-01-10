@@ -6,16 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:26:45 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:20:10 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/struct.h"
 #include "../include/print.h"
-//
-// #include "../include/print_test.h"
-// #include <stdio.h>
-// extern int	g_oper_count;
+#include <stddef.h>
 
 static int	rotate_element(t_stack stack[2])
 {
@@ -53,10 +50,15 @@ void	rb(t_stack stacks[2][2])
 
 void	rr(t_stack stacks[2][2])
 {
-	int	result;
+	int	result_ra;
+	int	result_rb;
 
-	result = (rotate_element(stacks[ST_A])
-			&& rotate_element(stacks[ST_B]));
-	if (result)
+	result_ra = rotate_element(stacks[ST_A]);
+	result_rb = rotate_element(stacks[ST_B]);
+	if (result_ra && result_rb)
 		print_result("rr");
+	else if (result_ra)
+		print_result("ra");
+	else if (result_rb)
+		print_result("rb");
 }

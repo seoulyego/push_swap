@@ -6,12 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:35:39 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 16:33:11 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:26:40 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/sort.h"
 #include "../include/operator.h"
+#include <stddef.h>
 
 int	set_rot_count(t_stack stacks[2][2], int limit[2], int data_ref)
 {

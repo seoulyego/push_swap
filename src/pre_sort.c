@@ -6,12 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:35:02 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:31:44 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:24:54 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/operator.h"
 #include "../include/sort.h"
+#include <stddef.h>
 
 static void	get_limit_data(t_stack stack[2], int limit[2])
 {
@@ -42,8 +43,7 @@ static void	divide_three_parts(t_stack stacks[2][2], int pivot[2])
 			pb(stacks);
 			if (stacks[ST_A][HEAD].ptr->data > pivot[ST_A])
 			{
-				if (stacks[ST_B][HEAD].size > 1
-					&& stacks[ST_B][HEAD].ptr->data < pivot[ST_B])
+				if (stacks[ST_B][HEAD].ptr->data < pivot[ST_B])
 					rr(stacks);
 				else
 					ra(stacks);
