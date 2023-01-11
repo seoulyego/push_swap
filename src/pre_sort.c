@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:35:02 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/11 06:21:46 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/11 09:18:05 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,15 @@ static void	sort_minimum(t_stack stacks[2][2], int limit[2])
 		ra(stacks);
 	else if (stacks[ST_A][TAIL].ptr->data != limit[MAX])
 		rra(stacks);
-	if (stacks[ST_A][HEAD].ptr->next != NULL
+	if ((stacks[ST_A][HEAD].ptr->next != NULL
+		&& stacks[ST_A][HEAD].ptr->data > stacks[ST_A][HEAD].ptr->next->data)
+		&& (stacks[ST_B][HEAD].size == 2
+		&& stacks[ST_B][HEAD].ptr->data < stacks[ST_B][HEAD].ptr->next->data))
+		ss(stacks);
+	else if (stacks[ST_A][HEAD].ptr->next != NULL
 		&& stacks[ST_A][HEAD].ptr->data > stacks[ST_A][HEAD].ptr->next->data)
 		sa(stacks);
-	if (stacks[ST_B][HEAD].size == 2
+	else if (stacks[ST_B][HEAD].size == 2
 		&& stacks[ST_B][HEAD].ptr->data < stacks[ST_B][HEAD].ptr->next->data)
 		sb(stacks);
 }
