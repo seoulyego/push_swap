@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:12:23 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/10 13:23:39 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/12 17:46:06 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	swap_element(t_stack stack[2])
 	t_node	*node_next;
 	t_node	*node_bottom;
 
-	if (stack[HEAD].size == 0 || stack[HEAD].size == 1)
+	if (stack[HEAD].size < 2)
 		return (0);
 	node_prev = stack[HEAD].ptr;
 	node_next = node_prev->next;

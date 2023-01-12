@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:40:47 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/12 18:01:51 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rotate_element(t_stack stack[2])
 	t_node	*node_top;
 	t_node	*node_last;
 
-	if (stack[HEAD].size == 0 || stack[HEAD].size == 1)
+	if (stack[HEAD].size < 2)
 		return ;
 	node_top = stack[HEAD].ptr;
 	node_last = stack[TAIL].ptr;

@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 22:27:42 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/11 06:15:45 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/12 17:36:19 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	save_splited_str(char **str_table, int index_table, char *str)
 		index_tmp++;
 		index_table++;
 	}
-	ft_free_char(tmp_table);
+	ft_free_char(&tmp_table);
 	return (index_table);
 }
 
@@ -87,7 +87,7 @@ char	**argv_to_str_table(char **argv)
 	if (!save_str_to_table(str_table, &index, argv)
 		|| !check_validate_table(str_table))
 	{
-		ft_free_char(str_table);
+		ft_free_char(&str_table);
 		return (NULL);
 	}
 	return (str_table);
@@ -123,11 +123,11 @@ int	init_stack(char **table, t_stack stack[2])
 		if (find_duplicated_number(stack, table[table_size], &data)
 			|| !stack_push(data, stack))
 		{
-			ft_free_char(table);
+			ft_free_char(&table);
 			print_error_message();
 			return (0);
 		}
 	}
-	ft_free_char(table);
+	ft_free_char(&table);
 	return (1);
 }
