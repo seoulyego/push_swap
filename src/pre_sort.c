@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:35:02 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/11 09:18:05 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/12 15:11:47 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,22 @@ static void	divide_three_parts(t_stack stacks[2][2], int pivot[2])
 
 static void	sort_minimum(t_stack stacks[2][2], int limit[2])
 {
+	int	condition_sa;
+	int	condition_sb;
+
 	if (stacks[ST_A][HEAD].ptr->data == limit[MAX])
 		ra(stacks);
 	else if (stacks[ST_A][TAIL].ptr->data != limit[MAX])
 		rra(stacks);
-	if ((stacks[ST_A][HEAD].ptr->next != NULL
-		&& stacks[ST_A][HEAD].ptr->data > stacks[ST_A][HEAD].ptr->next->data)
-		&& (stacks[ST_B][HEAD].size == 2
-		&& stacks[ST_B][HEAD].ptr->data < stacks[ST_B][HEAD].ptr->next->data))
+	condition_sa = (stacks[ST_A][HEAD].ptr->next != NULL \
+		&& stacks[ST_A][HEAD].ptr->data > stacks[ST_A][HEAD].ptr->next->data);
+	condition_sb = (stacks[ST_B][HEAD].ptr->next != NULL \
+		&& stacks[ST_B][HEAD].ptr->data < stacks[ST_B][HEAD].ptr->next->data);
+	if (condition_sa && condition_sb)
 		ss(stacks);
-	else if (stacks[ST_A][HEAD].ptr->next != NULL
-		&& stacks[ST_A][HEAD].ptr->data > stacks[ST_A][HEAD].ptr->next->data)
+	else if (condition_sa)
 		sa(stacks);
-	else if (stacks[ST_B][HEAD].size == 2
-		&& stacks[ST_B][HEAD].ptr->data < stacks[ST_B][HEAD].ptr->next->data)
+	else if (condition_sb)
 		sb(stacks);
 }
 
