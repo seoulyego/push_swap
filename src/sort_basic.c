@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:47:57 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 21:24:46 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/13 07:49:50 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ void	match_insert_position(t_stack stacks[2][2], int rot[2])
 	{
 		set_state(state, rot);
 		f_rotate[state[ST_B]][state[ST_A]](stacks);
-		if (rot[ST_B] != 0)
-			rot[ST_B] -= (state[ST_B] - 1);
-		if (rot[ST_A] != 0)
-			rot[ST_A] -= (state[ST_A] - 1);
+		rot[ST_B] -= (state[ST_B] - 1) * (rot[ST_B] != 0);
+		rot[ST_A] -= (state[ST_A] - 1) * (rot[ST_A] != 0);
 	}
 }
 
@@ -68,17 +66,13 @@ void	line_up_elements(t_stack stacks[2][2], int limit[2])
 	rot = locate_limit(stacks, limit, MIN);
 	if (rot == 0)
 		return ;
-	else if (rot < 0)
-		sign = -1;
-	else
-		sign = 1;
+	sign = (rot > 0) - (rot < 0);
 	while (rot)
 	{
 		if (sign < 0)
 			rra(stacks);
 		else if (sign > 0)
 			ra(stacks);
-		if (rot != 0)
-			rot -= sign;
+		rot -= sign;
 	}
 }

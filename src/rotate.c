@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:55:44 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/12 17:45:43 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/13 07:44:16 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ static int	rotate_element(t_stack stack[2])
 
 void	ra(t_stack stacks[2][2])
 {
-	int	result;
+	int	result_ra;
 
-	result = rotate_element(stacks[ST_A]);
-	if (result)
+	result_ra = rotate_element(stacks[ST_A]);
+	if (result_ra)
 		print_result("ra");
 }
 
 void	rb(t_stack stacks[2][2])
 {
-	int	result;
+	int	result_rb;
 
-	result = rotate_element(stacks[ST_B]);
-	if (result)
+	result_rb = rotate_element(stacks[ST_B]);
+	if (result_rb)
 		print_result("rb");
 }
 

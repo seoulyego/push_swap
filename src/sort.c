@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 08:25:47 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/09 16:18:25 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/13 00:46:21 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ void	insert_elements(t_stack stacks[2][2], int limit[2], int rot[2])
 			limit[MIN] = stacks[ST_A][HEAD].ptr->data;
 		else if (stacks[ST_A][HEAD].ptr->data > limit[MAX])
 			limit[MAX] = stacks[ST_A][HEAD].ptr->data;
-		else if (stacks[ST_A][HEAD].size == 0)
-		{
-			limit[MIN] = 0;
-			limit[MAX] = 0;
-		}
 	}
 	line_up_elements(stacks, limit);
 }

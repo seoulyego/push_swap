@@ -6,11 +6,11 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2023/01/11 06:04:28 by yeongo           ###   ########.fr        #
+#    Updated: 2023/01/13 08:25:29 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_MANDATORY	:=	push_swap
+NAME_MANDA		:=	push_swap
 NAME_BONUS		:=	checker
 
 LIBFT			:=	./libft/libft.a
@@ -83,7 +83,7 @@ else
 		SRC_FOLDER		:=	$(SRC_DIR)
 		OBJ_FOLDER		:=	$(OBJ_DIR)
 		OBJS			:=	$(OBJ)
-		NAME			:=	$(NAME_MANDATORY)
+		NAME			:=	$(NAME_MANDA)
 		PRINT			:=	PUSH_SWAP
 endif
 
@@ -105,7 +105,7 @@ $(OBJ_FOLDER)	:
 	fi
 
 $(NAME)	:	$(OBJS)
-	@make -s -C $(LIBFT_DIR) all BINARY_FILE=$(NAME)
+	@make -s -C $(LIBFT_DIR) MANDA_FILE=$(NAME_MANDA) BONUS_FILE=$(NAME_BONUS) all
 	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 	@echo "\033[01;32m         SUCCESS!        \033[0m"
 
@@ -133,7 +133,7 @@ clean	:
 .PHONY	:	fclean
 fclean	:	clean
 	@$(RM) $(LIBFT)
-	@$(RM) $(NAME_MANDATORY) $(NAME_BONUS)
+	@$(RM) $(NAME_MANDA) $(NAME_BONUS)
 	@echo "\033[91m       FCLEAN DONE       \033[0m"
 
 .PHONY	:	re

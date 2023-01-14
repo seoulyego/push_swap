@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:35:02 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/12 17:55:02 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/13 08:01:19 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ static void	divide_three_parts(t_stack stacks[2][2], int pivot[2])
 	to_check = stacks[ST_A][HEAD].size;
 	while (to_check > 0)
 	{
-		if (stacks[ST_A][HEAD].ptr->data <= pivot[ST_A])
+		if (stacks[ST_A][HEAD].ptr->data < pivot[ST_A])
 		{
 			pb(stacks);
-			if (stacks[ST_A][HEAD].ptr->data > pivot[ST_A])
+			if (stacks[ST_A][HEAD].ptr->data >= pivot[ST_A])
 			{
 				if (stacks[ST_B][HEAD].ptr->data < pivot[ST_B])
 					rr(stacks);
@@ -51,7 +51,7 @@ static void	divide_three_parts(t_stack stacks[2][2], int pivot[2])
 					ra(stacks);
 				to_check--;
 			}
-			else if (stacks[ST_B][HEAD].ptr->data <= pivot[ST_B])
+			else if (stacks[ST_B][HEAD].ptr->data < pivot[ST_B])
 				rb(stacks);
 		}
 		else
@@ -101,9 +101,7 @@ static void	left_minimum_element(t_stack stacks[2][2])
 
 int	pre_sort(t_stack stacks[2][2], int pivot[2], int limit[2])
 {
-	if (stacks[ST_A][HEAD].size == 1)
-		return (1);
-	else if (stacks[ST_A][HEAD].size > 5)
+	if (stacks[ST_A][HEAD].size > 5)
 		divide_three_parts(stacks, pivot);
 	left_minimum_element(stacks);
 	get_limit_data(stacks[ST_A], limit);

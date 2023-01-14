@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 22:27:42 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/12 17:36:19 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/13 00:58:30 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,13 @@ static int	find_duplicated_number(t_stack stack[2], char *str, int *data)
 
 int	init_stack(char **table, t_stack stack[2])
 {
-	int	data;
 	int	table_size;
+	int	data;
 
-	data = 0;
 	table_size = 0;
 	while (table[table_size] != NULL)
 		table_size++;
+	data = 0;
 	while (--table_size >= 0)
 	{
 		if (find_duplicated_number(stack, table[table_size], &data)

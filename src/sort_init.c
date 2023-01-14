@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 21:35:39 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/10 13:26:40 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/13 08:10:28 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ int	set_rot_count(t_stack stacks[2][2], int limit[2], int data_ref)
 	t_node	*cur;
 
 	cur = stacks[ST_A][HEAD].ptr;
-	if (data_ref < limit[MIN])
-		return (locate_limit(stacks, limit, MIN));
-	else if (data_ref >= limit[MAX])
-		return (locate_limit(stacks, limit, MAX));
-	else
+	if (limit[MIN] < data_ref && data_ref < limit[MAX])
 		return (locate_insert_point(stacks, data_ref));
+	return (locate_limit(stacks, limit, data_ref > limit[MAX]));
 }
 
 void	init_f_table(t_rotate f_rotate[3][3])
@@ -42,16 +39,6 @@ void	init_f_table(t_rotate f_rotate[3][3])
 
 void	set_state(int state[2], int rot[2])
 {
-	if (rot[ST_A] < 0)
-		state[ST_A] = 0;
-	else if (rot[ST_A] == 0)
-		state[ST_A] = 1;
-	else if (rot[ST_A] > 0)
-		state[ST_A] = 2;
-	if (rot[ST_B] < 0)
-		state[ST_B] = 0;
-	else if (rot[ST_B] == 0)
-		state[ST_B] = 1;
-	else if (rot[ST_B] > 0)
-		state[ST_B] = 2;
+	state[ST_A] = 0 + (rot[ST_A] >= 0) + (rot[ST_A] > 0);
+	state[ST_B] = 0 + (rot[ST_B] >= 0) + (rot[ST_B] > 0);
 }

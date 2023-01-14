@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:35:58 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/10 13:22:13 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/01/13 07:43:46 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ static int	push_element(t_stack stack_from[2], t_stack stack_to[2])
 
 void	pa(t_stack stacks[2][2])
 {
-	int	result;
+	int	result_pa;
 
-	result = push_element(stacks[ST_B], stacks[ST_A]);
-	if (result)
+	result_pa = push_element(stacks[ST_B], stacks[ST_A]);
+	if (result_pa)
 		print_result("pa");
 }
 
 void	pb(t_stack stacks[2][2])
 {
-	int	result;
+	int	result_pb;
 
-	result = push_element(stacks[ST_A], stacks[ST_B]);
-	if (result)
+	result_pb = push_element(stacks[ST_A], stacks[ST_B]);
+	if (result_pb)
 		print_result("pb");
 }
