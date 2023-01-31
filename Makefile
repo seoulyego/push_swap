@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2023/01/13 08:25:29 by yeongo           ###   ########.fr        #
+#    Updated: 2023/01/31 14:39:19 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,10 +90,10 @@ endif
 ifdef TEST
 		SRC				+=	$(addprefix $(SRC_DIR), $(addsuffix .c, print_test))
 		OBJ				+=	$(addprefix $(OBJ_DIR), $(addsuffix .o, print_test))
-		PRINT			:=	PUSH_SWAP_TEST
+		PRINT			:=	$(addsuffix _TEST, $(PRINT))
 else ifdef DEBUG
-		CFLAGS			+=	-g -fsanitize=address
-		PRINT			:=	PUSH_SWAP_DEBUG
+		DBFLAGS			:=	-g -fsanitize=address
+		PRINT			:=	$(addsuffix _DEBUG, $(PRINT))
 endif
 
 .PHONY	:	all
@@ -106,11 +106,11 @@ $(OBJ_FOLDER)	:
 
 $(NAME)	:	$(OBJS)
 	@make -s -C $(LIBFT_DIR) MANDA_FILE=$(NAME_MANDA) BONUS_FILE=$(NAME_BONUS) all
-	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+	@$(CC) $(DBFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 	@echo "\033[01;32m         SUCCESS!        \033[0m"
 
 $(OBJ_FOLDER)%.o	:	$(SRC_FOLDER)%.c
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(DBFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 .PHONY	:	bonus
 bonus	:
