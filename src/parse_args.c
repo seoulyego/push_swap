@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 22:27:42 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/13 00:58:30 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/02/07 15:15:20 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ char	**argv_to_str_table(char **argv)
 		|| !check_validate_table(str_table))
 	{
 		ft_free_char(&str_table);
+		print_error_message();
 		return (NULL);
 	}
 	return (str_table);

@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 00:35:02 by yeongo            #+#    #+#             */
-/*   Updated: 2023/01/13 08:01:19 by yeongo           ###   ########.fr       */
+/*   Updated: 2023/02/09 10:21:14 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,24 @@ static void	divide_three_parts(t_stack stacks[2][2], int pivot[2])
 	}
 }
 
+static void	left_minimum_element(t_stack stacks[2][2])
+{
+	t_node	*cur;
+	int		sorted;
+
+	cur = stacks[ST_A][HEAD].ptr;
+	sorted = 0;
+	while (cur->next != NULL && sorted < stacks[ST_A][HEAD].size)
+	{
+		if (cur->data > cur->next->data)
+			sorted = 0;
+		sorted++;
+		cur = cur->next;
+	}
+	while (stacks[ST_A][HEAD].size > 3 && stacks[ST_A][HEAD].size > sorted)
+		pb(stacks);
+}
+
 static void	sort_minimum(t_stack stacks[2][2], int limit[2])
 {
 	int	condition_sa;
@@ -79,24 +97,6 @@ static void	sort_minimum(t_stack stacks[2][2], int limit[2])
 		sa(stacks);
 	else if (condition_sb)
 		sb(stacks);
-}
-
-static void	left_minimum_element(t_stack stacks[2][2])
-{
-	t_node	*cur;
-	int		sorted;
-
-	cur = stacks[ST_A][HEAD].ptr;
-	sorted = 0;
-	while (cur->next != NULL && sorted < stacks[ST_A][HEAD].size)
-	{
-		if (cur->data > cur->next->data)
-			sorted = 0;
-		sorted++;
-		cur = cur->next;
-	}
-	while (stacks[ST_A][HEAD].size > 3 && stacks[ST_A][HEAD].size > sorted)
-		pb(stacks);
 }
 
 int	pre_sort(t_stack stacks[2][2], int pivot[2], int limit[2])
