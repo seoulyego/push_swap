@@ -67,12 +67,14 @@ void	line_up_elements(t_stack stacks[2][2], int limit[2])
 	if (rot == 0)
 		return ;
 	sign = (rot > 0) - (rot < 0);
-	while (rot)
-	{
-		if (sign < 0)
+	if (sign < 0)
+		while (rot) {
 			rra(stacks);
-		else if (sign > 0)
+			rot-= sign;
+		}
+	else
+		while (rot) {
 			ra(stacks);
-		rot -= sign;
-	}
+			rot-= sign;
+		}
 }
